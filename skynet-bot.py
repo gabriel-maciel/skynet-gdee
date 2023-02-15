@@ -5,7 +5,7 @@ import random
 
 BOT_TOKEN = '5725350819:AAFya5pw6KGoce8koCzkSQdsi7EGFAkknt4'
 bot = telebot.TeleBot(BOT_TOKEN)
-mensajes_aleatorios = ["Y como vienen con las tareas chicos?", "Hola chicos, quería saber si tienen alguna duda", "Chicos, cómo venimos con los pendientes?", "Chicos, me pregunta Lord PM para cuando salimos a prod"]
+mensajes_aleatorios = ["Y como vienen con las tareas chicos?", "Hola chicos, quería saber si tienen alguna duda", "Chicos, cómo venimos con los pendientes?", "Chicos, me pregunta Lord PM para cuando salimos a prod", "Ya cargue la tarjetita en Jira"]
 
 hora_inicio = datetime.time(10, 0, 0)
 hora_fin = datetime.time(17, 0, 0)

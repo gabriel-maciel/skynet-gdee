@@ -1,23 +1,16 @@
-import telegram
+import telebot
 
 # Inserta aquí el token de tu bot
-TOKEN = '5725350819:AAFya5pw6KGoce8koCzkSQdsi7EGFAkknt4'
+BOT_TOKEN = '5725350819:AAFya5pw6KGoce8koCzkSQdsi7EGFAkknt4'
 
-def hello_world(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='Hello, World!')
+bot = telebot.TeleBot(BOT_TOKEN)
 
-def main():
-    # Crea una instancia del bot
-    bot = telegram.Bot(token=TOKEN)
+@bot.message_handler(commands=['start', 'hello'])
+def send_welcome(message):
+    bot.reply_to(message, "Howdy, how are you doing?")
 
-    # Crea un despachador para el bot
-    dispatcher = telegram.Dispatcher(bot, None, workers=0)
+bot.message_handler(func=lambda msg: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
 
-    # Agrega un manejador para el comando /start
-    dispatcher.add_handler(telegram.CommandHandler('start', hello_world))
-
-    # Inicia el bot
-    bot.start_polling()
-
-if __name__ == '__main__':
-    main()
+bot.infinity_polling()

@@ -14,12 +14,7 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda msg: True)
 def echo_all(message):
-    bot.reply_to(message, message.text)
-
-@bot.message_handler(func=lambda msg: True)
-def echo_all(message):
     response = random.choice(messages)
     bot.reply_to(message, response)
-
 
 bot.infinity_polling()

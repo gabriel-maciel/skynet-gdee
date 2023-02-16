@@ -2,6 +2,7 @@ import telebot
 import datetime
 import threading
 import random
+import time
 
 BOT_TOKEN = '5725350819:AAFya5pw6KGoce8koCzkSQdsi7EGFAkknt4'
 bot = telebot.TeleBot(BOT_TOKEN)
@@ -21,13 +22,14 @@ def iniciar_temporizador(message):
     bot.send_message(chat_id=message.chat.id, text="Recibirás un mensaje del dog cada 2 a 3 horas dentro del rango horario permitido (10 AM a 5 PM).")
 
 def enviar_mensaje_programado():
+    
     while True:
         hora_actual = datetime.datetime.now().time()
         if hora_inicio <= hora_actual <= hora_fin:
-            tiempo_espera = random.randint(7200, 10800)
+            tiempo_espera = random.randint(1800, 3600)
             mensaje = random.choice(mensajes_aleatorios)
             bot.send_message(chat_id, mensaje)
-            time.sleep(tiempo_espera)
+            datetime.sleep(tiempo_espera)
         else:
             time.sleep(3600)
 
